@@ -42,9 +42,9 @@ I'm currently working on some Unity-based mobile titles mainly, and a few VR pro
 
 ------------------
 
-Feel free to talk to me:
+Feel free to talk with me:
 
-Service  |  Account
+:star:  |  :link:
 --------------- | ------------------ 
 Blog | http://gulu-dev.com/
 Zhihu | https://zhuanlan.zhihu.com/gu-lu
