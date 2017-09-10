@@ -9,9 +9,9 @@
 	    + [unity-gc-cheatsheet-details.md][2]
 	    + [unity-gc-cheatsheet-references.md][3]
 
-[1]: (2017) unity-gc-cheatsheet/unity-gc-cheatsheet.md  
-[2]: (2017) unity-gc-cheatsheet/unity-gc-cheatsheet-details.md  
-[3]: (2017) unity-gc-cheatsheet/unity-gc-cheatsheet-references.md  
+[1]: https://github.com/mc-gulu/gl-bits/blob/master/(2017)%20unity-gc-cheatsheet/unity-gc-cheatsheet.md  
+[2]: https://github.com/mc-gulu/gl-bits/blob/master/(2017)%20unity-gc-cheatsheet/unity-gc-cheatsheet-details.md  
+[3]: https://github.com/mc-gulu/gl-bits/blob/master/(2017)%20unity-gc-cheatsheet/unity-gc-cheatsheet-references.md  
 
 - [Unity MemoryProfiler 的工作机制及可能的改进](http://gulu-dev.com/post/perf_assist/2017-01-25-unity-memoryprofiler)
     + [ResourceTracker](https://github.com/PerfAssist/PA_ResourceTracker)
