@@ -26,7 +26,7 @@ Here is a rough outline of my career, which is taken from one of my presentaions
 
 A pretty long text-version:
 
-I'm Gu Lu(顾露), a game developer moved to Guangdong Zhuhai(广东珠海) in 2014 (previously living in Shanghai for 9 years). 
+I'm Gu Lu(顾路), a game developer moved to Guangdong Zhuhai(广东珠海) in 2014 (previously living in Shanghai for 9 years). 
 
 After graduated from Wuhan University of Technology(武汉理工大学), I came to Shanghai in 2005 and worked at **Ubisoft (Shanghai)** for two titles - Ghost Recon: Advanced Warfighter(幽灵行动:尖峰战士) and Splinter Cell: Double Agent(细胞分裂:双重间谍). During that period I got myself familiar with **Unreal Tech**, gained some practical experiences about **XBox and XBox 360**, and became friends with a number of talented people who are actively gearing up the game industry in Shanghai. 
 
