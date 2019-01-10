@@ -4,7 +4,7 @@
 **代码及地址**
 
 - 部署地址: 138.68.109.151 
-- 代码仓库： https://gitlab.com/mc-gulu/sp_band_server（需权限） 
+- 代码仓库（需权限）： https://gitlab.com/mc-gulu/sp_band_server
 
 **细节**
 
@@ -12,11 +12,11 @@
 - 端口 8080 为业务逻辑端口，请 tcp 到此端口，提供五个业务查询的功能 
     + (获取/更新设备参数，获取多设备当前/历史定位，获取警告列表)
     + (具体按照 "接口说明与调试.txt" 提供数据，格式为 json)
+- UpdateDevice 需要 POST 其他接口是 GET
 - 已有的手环数据已从后台导出 excel 并导入到新的后台，可供查询
 - 已增加 locationType 字段 (2019-01-06)
     + locationType 目前只支持 1. GPS (其他两种 lbs/wifi 目前不支持)
 - MapType 目前暂时没用 (还未做坐标转换，返回的坐标是原始数据) 
-- **GetDevicesHistoryBySNs/GetExceptionMessageBySNs 接口处理中**
 
 **举例**
 
