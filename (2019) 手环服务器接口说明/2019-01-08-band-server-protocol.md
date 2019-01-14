@@ -33,3 +33,28 @@
 - 当前/历史 (过去一段时间内的) 卫星个数及 GPS 信号情况
 - 当前/历史 (过去一段时间内的) 电池消耗情况
 
+## 新的 6 个业务逻辑接口及对应的查询接口
+
+- 由于这些操作会耗时完成，所有的接口均为异步接口
+- 这些接口统一返回一个 id，利用该 id 可查询对应操作的进展。
+
+-----------------
+
+- **SetTrackingInterval** (SNs, interval)
+    + 批量或单个设备设置定位间隔，其中 interval 为间隔的秒数
+- **PowerOff** (SNs)
+    + 批量或单个设备关机
+- **SetSleepPeriods** (SNs, periods)
+    +  批量或单个设置休眠时段，其中 periods 为时段
+- **ToggleAlertStaying** (SNs, on, alertDuration)
+    +  批量或单个设置停留报警，其中 on 为是否开启，alertDuration 为报警时长
+- **GetFullStatus** (SNs)
+    +  批量或单个设备返回当前设备状态
+- **GetFullHistory** (SNs)
+    +  批量或部分设备下载轨迹
+
+-----------------
+
+- **QueryOperProgress** (id)
+    + 查询指定操作的进展，如果完成将附带对应操作的结果
+
