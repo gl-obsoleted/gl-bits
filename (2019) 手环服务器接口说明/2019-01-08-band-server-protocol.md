@@ -33,28 +33,51 @@
 - 当前/历史 (过去一段时间内的) 卫星个数及 GPS 信号情况
 - 当前/历史 (过去一段时间内的) 电池消耗情况
 
-## 新的 6 个业务逻辑接口及对应的查询接口
+## 新的 9 个业务逻辑接口及对应的查询接口 (2019-01-17 03:17 更新)
 
-- 由于这些操作会耗时完成，所有的接口均为异步接口
-- 这些接口统一返回一个 id，利用该 id 可查询对应操作的进展。
+- 所有的接口均接受 Key 作为 URL 参数
+- 4 个支持批量设置的接口为异步接口，这些接口统一返回一个 id，利用该 id 可查询对应操作的进展。
 
------------------
+### 设备管理
 
-- **SetTrackingInterval** (SNs, interval)
-    + 批量或单个设备设置定位间隔，其中 interval 为间隔的秒数
+- **ListDevices** 
+    + **解释**: 列出所有设备
+    + **参数**: 除 Key 外无参数
+    + **返回**: json 设备表 （设备id，设备名字，状态（在线，离线），定位时间，方向 ，速度，电量）
+- **AddDevice** (SN, DeviceName, ContestStatus)
+    + **解释**: 添加单个设备
+    + **参数**: 设备号，设备名，设备状态
+    + **返回**: 返回 `{"Code":"1"}` 成功，其他返回值为失败
+- **RemoveDevice** (SN)
+    + **解释**: 移除单个设备
+    + **参数**: 设备号
+    + **返回**: 返回 `{"Code":"1"}` 成功，其他返回值为失败
+
+### 批量设置
+
+- **SetTrackingInterval** (SNs)
+    + 批量或单个设备设置定位间隔
+    + 此为 POST，需在 Form 中指定 Interval 为间隔秒数
 - **PowerOff** (SNs)
     + 批量或单个设备关机
-- **SetSleepPeriods** (SNs, periods)
-    +  批量或单个设置休眠时段，其中 periods 为时段
-- **ToggleAlertStaying** (SNs, on, alertDuration)
-    +  批量或单个设置停留报警，其中 on 为是否开启，alertDuration 为报警时长
-- **GetFullStatus** (SNs)
-    +  批量或单个设备返回当前设备状态
-- **GetFullHistory** (SNs)
-    +  批量或部分设备下载轨迹
+    + 此为 POST
+- **SetSleepPeriods** (SNs)
+    + 批量或单个设置休眠时段，其中 periods 为时段
+    + 此为 POST，需在 Form 中指定 Sleep1/Sleep2/Sleep3 为休眠时段
+    + 具体设置代码形如：“`v.Set("Sleep1", "08:00-12:00")`”
+- **ToggleAlertStaying** (SNs)
+    + 批量或单个设置停留报警
+    + 此为 POST
+    + 需在 Form 中指定 Toggle 为 1 设置 2 取消
+    + 需在 Form 中指定 Duration 为 n 意为报警时间持续 n 秒
 
------------------
+### 其他接口
 
-- **QueryOperProgress** (id)
+- **UploadFenceJSON** (MapName)
+    + 上传栅栏的 Json 描述文件
+    + MapName 为服务器上将保存的文件名
+    + 此为 POST，request.body 部分为文件内容
+- **QueryOperProgress** (CmdID)
     + 查询指定操作的进展，如果完成将附带对应操作的结果
+
 
