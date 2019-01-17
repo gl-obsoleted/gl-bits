@@ -70,6 +70,10 @@
     + **解释**: 移除单个设备
     + **参数**: 设备号
     + **返回**: 返回 `{"Code":"1"}` 成功，其他返回值为失败
+- **IsDeviceOnline** (SN)
+    + **解释**: 查看单个设备是否在线
+    + **参数**: 设备号
+    + **返回**: 返回 `{"Code":"1","IsOnline":"1"}` 表示在线
 
 -------------------------
 
@@ -91,12 +95,32 @@
     + 需在 Form 中指定 Toggle 为 1 设置 2 取消
     + 需在 Form 中指定 Duration 为 n 意为报警时间持续 n 秒
 
+-------------------------
+
+### 围栏接口
+
+- GET **ListFences** (Type) 列出所有围栏
+    + Type 为可选参数，1普通，2禁区，用于按类型筛选
+- GET **GetFence** (ID)
+    + 列出指定 ID 的围栏
+- POST **AddDevice** 添加围栏
+    + PostForm 参数
+        * Name 围栏名
+        * Type 围栏类型
+        * Plots 围栏数据类型为 json 字符串
+    + 返回新创建围栏的 ID
+- POST **RemoveDevice** 删除指定 ID 的围栏
+    + PostForm 参数
+        * ID 待删除的围栏 ID
+- POST **UpdateDevice** 更新指定 ID 的围栏
+    + PostForm 参数
+        * ID 待更新的围栏 ID
+        * Name 围栏名
+        * Type 围栏类型
+        * Plots 围栏数据类型为 json 字符串
+
 ### 其他接口
 
-- **UploadFenceJSON** (MapName)
-    + 上传栅栏的 Json 描述文件
-    + MapName 为服务器上将保存的文件名
-    + 此为 POST，request.body 部分为文件内容
 - **QueryOperProgress** (CmdID)
     + 查询指定操作的进展，如果完成将附带对应操作的结果
 
