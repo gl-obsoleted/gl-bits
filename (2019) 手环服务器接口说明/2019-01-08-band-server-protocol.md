@@ -33,7 +33,25 @@
 - 当前/历史 (过去一段时间内的) 卫星个数及 GPS 信号情况
 - 当前/历史 (过去一段时间内的) 电池消耗情况
 
-## 新的 9 个业务逻辑接口及对应的查询接口 (2019-01-17 03:17 更新)
+## 老的 5 个接口
+
+- GetDevice / GetTrackingBySNs / GetDevicesHistoryBySNs / GetExceptionMessageBySNs 全部是 GET 参数见范例
+- **UpdateDevice**  POST 接口
+    + **解释**: 
+        * 更改设备名 DeviceName 和竞赛状态 ContestStatus
+        * DeviceName 为空、 ContestStatus < 0 表示不改变
+    + **参数**: 
+        * URL 内提供
+            - Key 
+        * Form 内提供
+            - SN
+            - DeviceName
+            - ContestStatus
+    + **返回**
+        * 返回 `{"Code":"1"}` 成功
+- 使用例子见：[test_classic.go](./test_classic.go)
+
+## 新的 9 个业务逻辑接口及对应的查询接口 
 
 - 所有的接口均接受 Key 作为 URL 参数
 - 4 个支持批量设置的接口为异步接口，这些接口统一返回一个 id，利用该 id 可查询对应操作的进展。
@@ -52,6 +70,8 @@
     + **解释**: 移除单个设备
     + **参数**: 设备号
     + **返回**: 返回 `{"Code":"1"}` 成功，其他返回值为失败
+
+-------------------------
 
 ### 批量设置
 
