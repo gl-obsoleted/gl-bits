@@ -104,7 +104,7 @@
 
 ### 其他接口
 
-- **QueryOperProgress** (CmdID)
+- **QueryCmdProgress** (CmdID)
     + 查询指定操作的进展，如果完成将附带对应操作的结果
 
 ### Change History
